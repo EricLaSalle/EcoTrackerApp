@@ -1,14 +1,12 @@
 package org.example.ecotrackerapp.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import static org.example.ecotrackerapp.Main.conectarAmbBBDD;
 
 public class Controller {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onOpenAppButtonClick() {
+        conectarAmbBBDD();
     }
 }

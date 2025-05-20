@@ -80,11 +80,8 @@ public class ActivitatsSostenibles {
             case RESIDUS: {
                 return (0.6 * quantitat);
             }
-            case ALTRES: {
-                return (0.4 * quantitat);
-            }
             default: {
-                return 0.4;
+                return 0.4 * quantitat;
             }
         }
     }
