@@ -69,4 +69,15 @@ public class IniciIMenuController {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
     }
+
+    @FXML
+    private void eliminarActivitat() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/eliminar_activitat.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(loader.load(), 800, 600);
+        stage.setTitle("Eliminar Activitat Sostenible");
+        stage.setScene(scene);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.show();
+    }
 }

@@ -13,8 +13,8 @@ public class ActivitatsSostenibles {
     private double co2TotalEstalviat;
 
     // Constructor
-    public ActivitatsSostenibles(int id, String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat) {
-        this.id = id;
+    public ActivitatsSostenibles(String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat) {
+        this.id = 0;
         this.nom = nom;
         this.data = data;
         this.categoria = categoria;
@@ -25,7 +25,7 @@ public class ActivitatsSostenibles {
 
     // Constructor
     public ActivitatsSostenibles(int id, String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat, double co2TotalEstalviat) {
-        this.id = id;
+        this.id = 0;
         this.nom = nom;
         this.data = data;
         this.categoria = categoria;

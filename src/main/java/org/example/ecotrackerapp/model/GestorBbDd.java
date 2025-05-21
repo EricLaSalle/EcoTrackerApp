@@ -96,7 +96,11 @@ public class GestorBbDd {
     /**
      * Mètode que exporta a la classe ActivitatsSostenibles les dades de la BbDd
      */
-    private void crearLlistaActivitatsSostenibles(Connection connection) throws SQLException {
+    public static void crearLlistaActivitatsSostenibles(Connection connection) throws SQLException {
+        //Netejem la llista
+        LlistaActivitatsSostenibles.clear();
+
+        //Obtenim les dades de la BbDd
         String query = "SELECT * FROM activitatssostenibles";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
@@ -130,7 +134,7 @@ public class GestorBbDd {
     /**
      * Mètode que calcula la suma total de CO2 estalviat
      */
-    private void calcularSumaCo2TotalEstalviat() {
+    private static void calcularSumaCo2TotalEstalviat() {
         sumaCo2TotalEstalviat = 0;
         for (ActivitatsSostenibles activitat : LlistaActivitatsSostenibles) {
             sumaCo2TotalEstalviat += activitat.getCo2TotalEstalviat();
@@ -152,7 +156,8 @@ public class GestorBbDd {
         connection.close();
     }
 
-    public static void afeigrActivitataArrayList(ActivitatsSostenibles activitat) {
-        LlistaActivitatsSostenibles.add(activitat);
+    //Get de connection
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, user, password);
     }
 }

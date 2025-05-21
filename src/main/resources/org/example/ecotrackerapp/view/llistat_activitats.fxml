@@ -11,6 +11,7 @@
 
     <TableView fx:id="tablaActividades" style="-fx-table-cell-border-color: transparent;">
         <columns>
+            <TableColumn fx:id="colId" text="ID" style="-fx-alignment: CENTER;" prefWidth="50"/>
             <TableColumn fx:id="colNom" text="Nom" prefWidth="150"/>
             <TableColumn fx:id="colData" text="Data" prefWidth="100"/>
             <TableColumn fx:id="colCategoria" text="Categoria" prefWidth="120"/>

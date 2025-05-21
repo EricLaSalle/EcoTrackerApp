@@ -80,15 +80,14 @@ public class AfegirActivitatController {
     @FXML
     private void guardarActivitat() {
         try {
-            int id = GestorBbDd.getLlistaActivitatsSostenibles().size() + 1;
             String nom = nomField.getText();
             LocalDate data = dataPicker.getValue();
             Categoria categoria = GestorBbDd.getLlistaCategories().get(categoriaCombo.getSelectionModel().getSelectedIndex());
             String descripcio = descripcioArea.getText();
             double quantitat = Double.parseDouble(quantitatField.getText());
 
-            ActivitatsSostenibles novaActivitat = new ActivitatsSostenibles(id, nom, data, categoria, descripcio, quantitat);
-            GestorBbDd.afeigrActivitataArrayList(novaActivitat);
+            ActivitatsSostenibles novaActivitat = new ActivitatsSostenibles(nom, data, categoria, descripcio, quantitat);
+            GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());
 
             GestorBbDd.afegirActivitataBBDD(novaActivitat);
 
