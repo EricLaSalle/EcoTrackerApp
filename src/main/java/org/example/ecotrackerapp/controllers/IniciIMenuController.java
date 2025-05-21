@@ -55,9 +55,9 @@ public class IniciIMenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/llistat_activitats.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(loader.load(), 800, 600);
-        stage.setTitle("Ecotracker App");
+        stage.setTitle("Llistat d'Activitats Sostenibles");
         stage.setScene(scene);
-        stage.setMaximized(true);
+        stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
 
     }
