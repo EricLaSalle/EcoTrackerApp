@@ -11,7 +11,7 @@ public class ActivitatsSostenibles {
     private double co2TotalEstalviat;
 
     // Constructor
-    public ActivitatsSostenibles(int id, String nom, String data, Categoria categoria, String descripcio, float quantitat) {
+    public ActivitatsSostenibles(int id, String nom, String data, Categoria categoria, String descripcio, double quantitat, double co2TotalEstalviat) {
         this.id = id;
         this.nom = nom;
         this.data = data;
@@ -67,17 +67,17 @@ public class ActivitatsSostenibles {
 
     // Mètode per calcular el CO2 estalviat
     private double calculCo2Estalviat(Categoria categoria) {
-        switch (categoria.getNomCategoria()) {
-            case TRANSPORT: {
+        switch (categoria.getNomCategoria().toUpperCase()) {
+            case "TRANSPORT": {
                 return (0.2 * quantitat);
             }
-            case ENERGIA: {
+            case "ENERGIA": {
                 return (0.9 * quantitat);
             }
-            case ALIMENTACIO: {
+            case "ALIMENTACIO": {
                 return (0.7 * quantitat);
             }
-            case RESIDUS: {
+            case "RESIDUS": {
                 return (0.6 * quantitat);
             }
             default: {
