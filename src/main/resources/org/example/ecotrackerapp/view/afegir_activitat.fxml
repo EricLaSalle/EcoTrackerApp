@@ -2,10 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
 
-<?import com.sun.javafx.scene.control.DoubleField?>
 <VBox xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="org.example.ecotrackerapp.controllers.AfegirActivitatController"
       spacing="10" style="-fx-padding: 20;">
@@ -36,8 +33,8 @@
                   promptText="Màxim 100 caràcters" wrapText="true" prefRowCount="3"/>
 
         <!-- Camp Quantitat -->
-        <Label text="Quantitat:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextField fx:id="quantitatField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        <Label fx:id="quantitatLabel" text="Quantitat:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="quantitatField" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Introdueix la quantitat"/>
 
         <!-- CO₂ Estalviat -->
         <Label text="CO₂ Estalviat:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
