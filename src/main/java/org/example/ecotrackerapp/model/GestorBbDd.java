@@ -136,4 +136,23 @@ public class GestorBbDd {
             sumaCo2TotalEstalviat += activitat.getCo2TotalEstalviat();
         }
     }
+
+    public static void afegirActivitataBBDD(ActivitatsSostenibles activitat) throws SQLException {
+        Connection connection = DriverManager.getConnection(url, user, password);
+        String query = "INSERT INTO activitatssostenibles (nom, data, nomcategoria, descripcio, quantitat, co2totalestalviat) VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, activitat.getNom());
+        preparedStatement.setDate(2, Date.valueOf(activitat.getData()));
+        preparedStatement.setString(3, activitat.getCategoria().getNomCategoria());
+        preparedStatement.setString(4, activitat.getDescripcio());
+        preparedStatement.setDouble(5, activitat.getQuantitat());
+        preparedStatement.setDouble(6, activitat.getCo2TotalEstalviat());
+
+        preparedStatement.executeUpdate();
+        connection.close();
+    }
+
+    public static void afeigrActivitataArrayList(ActivitatsSostenibles activitat) {
+        LlistaActivitatsSostenibles.add(activitat);
+    }
 }
