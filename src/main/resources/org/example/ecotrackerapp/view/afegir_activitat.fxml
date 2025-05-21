@@ -5,6 +5,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 
+<?import com.sun.javafx.scene.control.DoubleField?>
 <VBox xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="org.example.ecotrackerapp.controllers.AfegirActivitatController"
       spacing="10" style="-fx-padding: 20;">
@@ -36,7 +37,7 @@
 
         <!-- Camp Quantitat -->
         <Label text="Quantitat:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextField fx:id="quantitatField" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Introdueix la quantitat"/>
+        <TextField fx:id="quantitatField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
         <!-- CO₂ Estalviat -->
         <Label text="CO₂ Estalviat:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
@@ -44,7 +45,7 @@
     </GridPane>
 
     <HBox spacing="10" style="-fx-padding: 10 0 0 0;">
-        <Button text="Guardar" fx:id="guardarButton" style="-fx-font-weight: bold;"/>
-        <Button text="Cancel·lar" fx:id="cancelarButton"/>
+        <Button text="Guardar" fx:id="guardarButton" style="-fx-font-weight: bold;" onAction="#guardarActivitat"/>
+        <Button text="Cancel·lar" fx:id="cancelarButton" onAction="#cancelar"/>
     </HBox>
 </VBox>

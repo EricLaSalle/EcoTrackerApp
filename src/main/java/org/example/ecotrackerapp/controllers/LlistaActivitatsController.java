@@ -14,7 +14,6 @@ import java.time.format.DateTimeFormatter;
 public class LlistaActivitatsController {
     //Declaració de valors fxml
     @FXML private TableView<ActivitatsSostenibles> tablaActividades;
-    @FXML private TableColumn<ActivitatsSostenibles, Integer> colId;
     @FXML private TableColumn<ActivitatsSostenibles, String> colNom;
     @FXML private TableColumn<ActivitatsSostenibles, String> colData;
     @FXML private TableColumn<ActivitatsSostenibles, String> colCategoria;
@@ -28,8 +27,6 @@ public class LlistaActivitatsController {
      */
     public void initialize() {
         // Configurar columnes
-        colId.setCellValueFactory(cellData ->
-                new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
         colNom.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getNom()));
         colData.setCellValueFactory(cellData ->

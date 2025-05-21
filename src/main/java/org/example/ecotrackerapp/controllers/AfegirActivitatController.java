@@ -7,17 +7,14 @@ import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.ActivitatsSostenibles;
 import org.example.ecotrackerapp.model.Categoria;
 import org.example.ecotrackerapp.model.GestorBbDd;
-
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 public class AfegirActivitatController {
     @FXML private TextField nomField;
     @FXML private DatePicker dataPicker;
     @FXML private ComboBox<String> categoriaCombo;
     @FXML private TextArea descripcioArea;
-    @FXML private DoubleField quantitatField;
+    @FXML private TextField quantitatField;
     @FXML private Label co2Label;
     @FXML private Button guardarButton;
     @FXML private Button cancelarButton;
@@ -43,15 +40,22 @@ public class AfegirActivitatController {
             categoriaCombo.getItems().add(nomCategoria);
         }
 
+        quantitatField.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal.matches("\\d*\\.?\\d*")) {
+                quantitatField.setText(oldVal);
+            }
+            calcularCo2();
+        });
+
         // Calcul automàtic del CO₂
-        quantitatField.valueProperty().addListener((obs, oldVal, newVal) -> calcularCo2());
+        quantitatField.textProperty().addListener((obs, oldVal, newVal) -> calcularCo2());
         categoriaCombo.valueProperty().addListener((obs, oldVal, newVal) -> calcularCo2());
     }
 
     private void calcularCo2() {
         try {
-            if (categoriaCombo.getValue() != null && !quantitatField.getValue().equals(0.0)) {
-                double quantitat = quantitatField.getValue();
+            if (categoriaCombo.getValue() != null && !quantitatField.getText().isEmpty()) {
+                double quantitat = Double.parseDouble(quantitatField.getText());
                 double co2Unitari = GestorBbDd.getLlistaCategories().get(categoriaCombo.getSelectionModel().getSelectedIndex()).getCo2UnitariEstalviat();
                 double total = quantitat * co2Unitari;
                 co2Label.setText(String.format("%.2f kg CO₂", total));
@@ -68,7 +72,7 @@ public class AfegirActivitatController {
             LocalDate data = dataPicker.getValue();
             Categoria categoria = GestorBbDd.getLlistaCategories().get(categoriaCombo.getSelectionModel().getSelectedIndex());
             String descripcio = descripcioArea.getText();
-            double quantitat = quantitatField.getValue();
+            double quantitat = Double.parseDouble(quantitatField.getText());
 
             ActivitatsSostenibles novaActivitat = new ActivitatsSostenibles(0, nom, data, categoria, descripcio, quantitat);
             GestorBbDd.afeigrActivitataArrayList(novaActivitat);
