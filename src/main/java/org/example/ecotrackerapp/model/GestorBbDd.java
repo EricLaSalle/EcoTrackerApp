@@ -1,12 +1,14 @@
 package org.example.ecotrackerapp.model;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class GestorBbDd {
     // Llistes de dades
     private static ArrayList<Categoria> LlistaCategories = new ArrayList<>();
     private static ArrayList<ActivitatsSostenibles> LlistaActivitatsSostenibles = new ArrayList<>();
+    private static double sumaCo2TotalEstalviat;
 
     // Constants per a la connexió a la base de dades
     private static String url;
@@ -22,6 +24,26 @@ public class GestorBbDd {
         user = "root";
         password = "";
         connectarAmbBbDd();
+    }
+
+    //Getters i Setters
+    public static ArrayList<Categoria> getLlistaCategories() {
+        return LlistaCategories;
+    }
+    public static void setLlistaCategories(ArrayList<Categoria> llistaCategories) {
+        LlistaCategories = llistaCategories;
+    }
+    public static ArrayList<ActivitatsSostenibles> getLlistaActivitatsSostenibles() {
+        return LlistaActivitatsSostenibles;
+    }
+    public static void setLlistaActivitatsSostenibles(ArrayList<ActivitatsSostenibles> llistaActivitatsSostenibles) {
+        LlistaActivitatsSostenibles = llistaActivitatsSostenibles;
+    }
+    public static double getSumaCo2TotalEstalviat() {
+        return sumaCo2TotalEstalviat;
+    }
+    public static void setSumaCo2TotalEstalviat(double sumaCo2TotalEstalviat) {
+        GestorBbDd.sumaCo2TotalEstalviat = sumaCo2TotalEstalviat;
     }
 
     /**
@@ -42,6 +64,7 @@ public class GestorBbDd {
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             System.out.println("Connexió a la base de dades establerta.");
+            //Exportem les dades de la BbDd a les llistes
             crearLlistaCategories(connection);
             crearLlistaActivitatsSostenibles(connection);
         }catch (SQLException sqle) {
@@ -81,7 +104,7 @@ public class GestorBbDd {
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
             String nom = resultSet.getString("nom");
-            String data = resultSet.getString("data");
+            LocalDate data = LocalDate.parse(resultSet.getString("data"));
             String nomCategoria = resultSet.getString("nomcategoria");
             String descripcio = resultSet.getString("descripcio");
             double quantitat = resultSet.getDouble("quantitat");
@@ -100,5 +123,17 @@ public class GestorBbDd {
 
         resultSet.close();
         statement.close();
+
+        calcularSumaCo2TotalEstalviat();
+    }
+
+    /**
+     * Mètode que calcula la suma total de CO2 estalviat
+     */
+    private void calcularSumaCo2TotalEstalviat() {
+        sumaCo2TotalEstalviat = 0;
+        for (ActivitatsSostenibles activitat : LlistaActivitatsSostenibles) {
+            sumaCo2TotalEstalviat += activitat.getCo2TotalEstalviat();
+        }
     }
 }

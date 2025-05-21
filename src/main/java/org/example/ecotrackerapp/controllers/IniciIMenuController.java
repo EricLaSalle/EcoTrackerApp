@@ -2,15 +2,18 @@ package org.example.ecotrackerapp.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.GestorBbDd;
 import java.io.IOException;
 import java.sql.SQLException;
 
 
-public class Controller {
+public class IniciIMenuController {
     @FXML
     private Button openAppButton;
 
@@ -31,7 +34,7 @@ public class Controller {
      */
     protected void pantallaMenu() throws IOException {
         // Carregar la nova finestra
-        FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("/org/example/ecotrackerapp/view/menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(IniciIMenuController.class.getResource("/org/example/ecotrackerapp/view/menu.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Ecotracker App");
@@ -42,5 +45,20 @@ public class Controller {
         // Tancar la finestra anterior
         Stage ventanaActual = (Stage) openAppButton.getScene().getWindow();
         ventanaActual.close();
+    }
+
+    @FXML
+    private Button verActividadesBtn;
+
+    @FXML
+    private void mostrarListaActividades() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/llistat_activitats.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(loader.load(), 800, 600);
+        stage.setTitle("Ecotracker App");
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+
     }
 }
