@@ -9,11 +9,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.example.ecotrackerapp.model.ActivitatsSostenibles;
 import org.example.ecotrackerapp.model.GestorBbDd;
-
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class LlistaActivitatsController {
+    //Declaració de valors fxml
     @FXML private TableView<ActivitatsSostenibles> tablaActividades;
     @FXML private TableColumn<ActivitatsSostenibles, Integer> colId;
     @FXML private TableColumn<ActivitatsSostenibles, String> colNom;
@@ -24,32 +23,27 @@ public class LlistaActivitatsController {
     @FXML private TableColumn<ActivitatsSostenibles, Double> colCo2;
     @FXML private Label totalCo2;
 
-    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
+    /**
+     * Aquest mètode inicialitza la vista de la llista d'activitats sostenibles.
+     */
     public void initialize() {
-        // Configurar columnas
+        // Configurar columnes
         colId.setCellValueFactory(cellData ->
                 new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
-
         colNom.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getNom()));
-
         colData.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getData().format(dateFormatter)));
-
+                new SimpleStringProperty(cellData.getValue().getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
         colCategoria.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getCategoria().getNomCategoria()));
-
         colDescripcio.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getDescripcio()));
-
         colQuantitat.setCellValueFactory(cellData ->
                 new SimpleDoubleProperty(cellData.getValue().getQuantitat()).asObject());
-
         colCo2.setCellValueFactory(cellData ->
                 new SimpleDoubleProperty(cellData.getValue().getCo2TotalEstalviat()).asObject());
 
-        // Cargar datos
+        // Cridem al mètode carregar dades per omplir la taula
         cargarDatos();
     }
 
