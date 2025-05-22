@@ -12,7 +12,7 @@ public class ActivitatsSostenibles {
     private double quantitat;
     private double co2TotalEstalviat;
 
-    // Constructor
+    // Constructor per afegir nova activitat
     public ActivitatsSostenibles(String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat) {
         this.id = 0;
         this.nom = nom;
@@ -34,7 +34,7 @@ public class ActivitatsSostenibles {
         this.co2TotalEstalviat = calculCo2Estalviat(categoria);
     }
 
-    // Constructor
+    // Constructor per la exportació de la BBDD
     public ActivitatsSostenibles(int id, String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat, double co2TotalEstalviat) {
         this.id = id;
         this.nom = nom;
