@@ -130,6 +130,9 @@ Vistes (FXML) → Controladors ↔ Model (Activitat, DatabaseManager) ↔ Base d
 
 ### Esquema de la Base de Dades
 ![DiagramaE-R drawio](https://github.com/user-attachments/assets/d8fbfe3b-db7a-4f54-a916-695ee4447755)
+### Diagrama d'Activitat
+![DiagramaActividad drawio](https://github.com/user-attachments/assets/89abbbc7-c75f-4d11-b984-e19c1fb3c6ba)
+
 
 **Per exportar la base de dades i els arxius .csv de prova pots trovar-los dins del repositori a la carpeta BBDD**
 
