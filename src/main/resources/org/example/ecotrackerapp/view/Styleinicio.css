@@ -1,0 +1,32 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+}
+
+/* Botón específico con ID */
+#openAppButton {
+    -fx-background-color: #4fc3f7;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 12 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 2, 2);
+    -fx-border-color: transparent;
+    -fx-text-alignment: center;
+}
+
+/* Hover effect */
+#openAppButton:hover {
+    -fx-background-color: #0288d1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0, 3, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Centrado y estética del VBox (si deseas afinar más allá del FXML) */
+.vbox {
+    -fx-alignment: center;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+}
