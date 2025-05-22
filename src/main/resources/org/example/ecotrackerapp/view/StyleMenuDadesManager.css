@@ -1,0 +1,55 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #e1f5fe, #b3e5fc);
+    -fx-background-image: url("Transizione-ecologica-12-milioni.jpg");
+    -fx-background-size: cover; /* O "contain", según el efecto que quieras */
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+.border-pane {
+    -fx-background-color: linear-gradient(to bottom right, #e1f5fe, #b3e5fc);
+}
+
+/* Botones */
+.button {
+    -fx-background-color: #4fc3f7;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 18 10 18;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 2, 2);
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+    -fx-border-radius: 4px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+
+}
+
+.button:hover {
+    -fx-background-color: #0288d1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0, 3, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+.header, .footer {
+    -fx-background-color: #81d4fa;
+    -fx-padding: 15;
+    -fx-alignment: center;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Footer puede tener padding diferente si quieres */
+.footer {
+    -fx-padding: 10;
+}
+
+/* Laterales que ocupan todo el alto */
+.sidebar-left, .sidebar-right {
+    -fx-background-color: #81d4fa;
+    -fx-pref-width: 80px;
+}
