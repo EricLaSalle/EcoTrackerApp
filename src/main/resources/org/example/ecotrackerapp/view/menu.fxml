@@ -6,7 +6,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.IniciIMenuController">
    <children>
       <Button fx:id="VeureActivitatsButton" layoutX="197.0" layoutY="142.0" mnemonicParsing="false" onAction="#mostrarListaActividades" text="Veure totes les activitats sostenibles" />
-      <Button fx:id="AfegirActivitatsButton" layoutX="202.0" layoutY="254.0" mnemonicParsing="false" onAction="#afegirActivitat" text="Afegir activitat sostenible" />
-      <Button fx:id="EliminarActivitatButton" layoutX="225.0" layoutY="200.0" mnemonicParsing="false" onAction="#eliminarActivitat" text="Eliminar activitat" />
+      <Button fx:id="ManegarDadesButton" layoutX="202.0" layoutY="254.0" mnemonicParsing="false" onAction="#obrirMenuManagerActivitats" text="Obrir el manager d'activitats" />
    </children>
 </AnchorPane>

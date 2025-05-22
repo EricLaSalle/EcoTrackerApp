@@ -47,6 +47,10 @@ public class IniciIMenuController {
         ventanaActual.close();
     }
 
+    /**
+     * Aquest mètode mostra una nova finestra on es veuen les activitats sostenibles.
+     * @throws IOException
+     */
     @FXML
     private void mostrarListaActividades() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/llistat_activitats.fxml"));
@@ -56,26 +60,18 @@ public class IniciIMenuController {
         stage.setScene(scene);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
-
     }
 
+    /**
+     * Auest mètode mostra una nova finestra on es poden manejar les activitats sostenibles.
+     * @throws IOException
+     */
     @FXML
-    private void afegirActivitat() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/afegir_activitat.fxml"));
+    private void obrirMenuManagerActivitats() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/menu_dades_manager.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(loader.load(), 800, 600);
-        stage.setTitle("Afegir Activitat Sostenible");
-        stage.setScene(scene);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.show();
-    }
-
-    @FXML
-    private void eliminarActivitat() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/eliminar_activitat.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(loader.load(), 800, 600);
-        stage.setTitle("Eliminar Activitat Sostenible");
+        stage.setTitle("Menú Gestor d'Activitats Sostenibles");
         stage.setScene(scene);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
