@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.ecotrackerapp.controllers.AfegirDadesDesdeArxiuController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.AfegirDadesDesdeArxiuController">
+    <children>
+        <TextField fx:id="rutaArxiuField" layoutX="150.0" layoutY="100.0" prefWidth="300.0" promptText="Introdueix la ruta completa de l'arxiu"/>
+        <Label layoutX="150.0" layoutY="70.0" text="Introdueix la ruta de l'arxiu" />
+        <Button layoutX="150.0" layoutY="150.0" text="Afegir Dades" onAction="#handleAfegirDades" />
+        <Button layoutX="250.0" layoutY="150.0" text="Cancel·lar" onAction="#handleCancelar" />
+        <Label fx:id="missatgeLabel" layoutX="150.0" layoutY="200.0" />
+    </children>
 </AnchorPane>

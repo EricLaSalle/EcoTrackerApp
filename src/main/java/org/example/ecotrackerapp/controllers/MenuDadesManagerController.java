@@ -47,10 +47,10 @@ public class MenuDadesManagerController {
      */
     @FXML
     private void onClickAfegirDesdeArxiu() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("org/example/ecotrackerapp/view/afegir_dades_desde_arxiu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/afegir_dades_desde_arxiu.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(loader.load(), 800, 600);
-        stage.setTitle("Afegir Arxiu d'Activitats Sostenibles");
+        stage.setTitle("Afegir Activitats Sostenibles des d'un Arxiu");
         stage.setScene(scene);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();

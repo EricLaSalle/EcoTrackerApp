@@ -1,5 +1,6 @@
 package org.example.ecotrackerapp.model;
 
+import java.io.File;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -150,8 +151,7 @@ public class GestorBbDd {
      * @param activitat
      * @throws SQLException
      */
-    public static void afegirActivitataBBDD(ActivitatsSostenibles activitat) throws SQLException {
-        Connection connection = DriverManager.getConnection(url, user, password);
+    public static void afegirActivitataBBDD(ActivitatsSostenibles activitat, Connection connection) throws SQLException {
         String query = "INSERT INTO activitatssostenibles (nom, data, nomcategoria, descripcio, quantitat, co2totalestalviat) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, activitat.getNom());
@@ -160,9 +160,8 @@ public class GestorBbDd {
         preparedStatement.setString(4, activitat.getDescripcio());
         preparedStatement.setDouble(5, activitat.getQuantitat());
         preparedStatement.setDouble(6, activitat.getCo2TotalEstalviat());
-
         preparedStatement.executeUpdate();
-        connection.close();
+        preparedStatement.close();
     }
 
     /**
@@ -170,13 +169,12 @@ public class GestorBbDd {
      * @param id
      * @throws SQLException
      */
-    public static void eliminarActivitatBBDD(int id) throws SQLException {
-        Connection connection = DriverManager.getConnection(url, user, password);
+    public static void eliminarActivitatBBDD(int id, Connection connection) throws SQLException {
         String query = "DELETE FROM activitatssostenibles WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
-        connection.close();
+        preparedStatement.close();
     }
 
     /**
@@ -184,8 +182,7 @@ public class GestorBbDd {
      * @param activitat
      * @throws SQLException
      */
-    public static void modificarActivitat(ActivitatsSostenibles activitat) throws SQLException {
-        Connection connection = DriverManager.getConnection(url, user, password);
+    public static void modificarActivitat(ActivitatsSostenibles activitat, Connection connection) throws SQLException {
         String query = "UPDATE activitatssostenibles SET nom = ?, data = ?, nomcategoria = ?, descripcio = ?, quantitat = ?, co2totalestalviat = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, activitat.getNom());
@@ -196,7 +193,7 @@ public class GestorBbDd {
         preparedStatement.setDouble(6, activitat.getCo2TotalEstalviat());
         preparedStatement.setInt(7, activitat.getId());
         preparedStatement.executeUpdate();
-        connection.close();
+
 
         // Actualitzem la llista d'activitats sostenibles
         for (ActivitatsSostenibles activitatFor : LlistaActivitatsSostenibles) {
@@ -209,6 +206,48 @@ public class GestorBbDd {
                 activitatFor.setCo2TotalEstalviat(activitat.getCo2TotalEstalviat());
                 break;
             }
+        }
+
+        preparedStatement.close();
+    }
+
+    /**
+     * Afegeix activitats a la base de dades des d'un arxiu extern
+     * @param rutaArxiu Ruta completa de l'arxiu amb les dades
+     * @return true si s'han afegit les dades correctament, false si hi ha hagut algun error
+     */
+    public static boolean afegirArxiuActivitats(String rutaArxiu, Connection connection) {
+        PreparedStatement preparedStatement = null;
+
+        try {
+            // Verificar que l'arxiu existeix abans de començar
+            File arxiu = new File(rutaArxiu);
+            if (!arxiu.exists() || !arxiu.canRead()) {
+                System.err.println("Error: L'arxiu no existeix o no es pot llegir");
+                return false;
+            }
+
+            // Preparar la consulta
+            String query = "LOAD DATA INFILE ? INTO TABLE activitatssostenibles " +
+                    "FIELDS TERMINATED BY ';' " +
+                    "LINES TERMINATED BY '\n' " +
+                    "IGNORE 1 LINES " +
+                    "(nom, data, nomcategoria, descripcio, quantitat, co2totalestalviat)";
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, rutaArxiu);
+
+            // Executar la consulta
+            int filesAfectades = preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+
+            // Si s'han afectat files, considerem que ha estat un èxit
+            return filesAfectades > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Error SQL en afegir arxiu d'activitats: " + e.getMessage());
+            return false;
         }
     }
 }

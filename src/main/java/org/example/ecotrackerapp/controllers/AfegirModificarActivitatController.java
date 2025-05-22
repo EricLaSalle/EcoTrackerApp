@@ -138,14 +138,14 @@ public class AfegirModificarActivitatController {
                 activitat = new ActivitatsSostenibles(idActividadOriginal, nom, data, categoria, descripcio, quantitat);
 
                 // Actualitzar l'activitat a la base de dades i a la llista
-                GestorBbDd.modificarActivitat(activitat);
+                GestorBbDd.modificarActivitat(activitat, GestorBbDd.getConnection());
 
                 //Mostrem un missatge d'èxit
                 mostrarAlerta("Èxit", "Activitat modificada correctament", Alert.AlertType.INFORMATION);
             } else {
                 //Afegim nova activitat a la base de dades
                 activitat = new ActivitatsSostenibles(nom, data, categoria, descripcio, quantitat);
-                GestorBbDd.afegirActivitataBBDD(activitat);
+                GestorBbDd.afegirActivitataBBDD(activitat, GestorBbDd.getConnection());
                 GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());
 
                 //Mostrem missatge d'èxit

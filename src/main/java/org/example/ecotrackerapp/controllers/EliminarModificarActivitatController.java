@@ -127,7 +127,7 @@ public class EliminarModificarActivitatController {
         if ("Eliminar".equals(accion)) {
             // Eliminar la actividad
             int id = activitatSeleccionada.getId();
-            GestorBbDd.eliminarActivitatBBDD(id);
+            GestorBbDd.eliminarActivitatBBDD(id, GestorBbDd.getConnection());
             GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());
 
             mostrarAlerta("Èxit", "Activitat eliminada correctament", Alert.AlertType.INFORMATION);
