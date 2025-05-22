@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -84,5 +85,14 @@ public class LlistaActivitatsController {
         stage.setScene(scene);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
+    }
+
+    @FXML
+    private void onClickExportarButton() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Exportar Dades");
+        alert.setHeaderText("Exportar Dades");
+        alert.setContentText("No s'han pogut exportar les dades a l'arxiu.");
+        alert.showAndWait();
     }
 }

@@ -1,6 +1,8 @@
 package org.example.ecotrackerapp.model;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
