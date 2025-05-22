@@ -178,4 +178,37 @@ public class GestorBbDd {
         preparedStatement.executeUpdate();
         connection.close();
     }
+
+    /**
+     * Mètode que modifica una activitat de la base de dades
+     * @param activitat
+     * @throws SQLException
+     */
+    public static void modificarActivitat(ActivitatsSostenibles activitat) throws SQLException {
+        Connection connection = DriverManager.getConnection(url, user, password);
+        String query = "UPDATE activitatssostenibles SET nom = ?, data = ?, nomcategoria = ?, descripcio = ?, quantitat = ?, co2totalestalviat = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, activitat.getNom());
+        preparedStatement.setDate(2, Date.valueOf(activitat.getData()));
+        preparedStatement.setString(3, activitat.getCategoria().getNomCategoria());
+        preparedStatement.setString(4, activitat.getDescripcio());
+        preparedStatement.setDouble(5, activitat.getQuantitat());
+        preparedStatement.setDouble(6, activitat.getCo2TotalEstalviat());
+        preparedStatement.setInt(7, activitat.getId());
+        preparedStatement.executeUpdate();
+        connection.close();
+
+        // Actualitzem la llista d'activitats sostenibles
+        for (ActivitatsSostenibles activitatFor : LlistaActivitatsSostenibles) {
+            if (activitatFor.getId() == activitat.getId()) {
+                activitatFor.setNom(activitat.getNom());
+                activitatFor.setData(activitat.getData());
+                activitatFor.setCategoria(activitat.getCategoria());
+                activitatFor.setDescripcio(activitat.getDescripcio());
+                activitatFor.setQuantitat(activitat.getQuantitat());
+                activitatFor.setCo2TotalEstalviat(activitat.getCo2TotalEstalviat());
+                break;
+            }
+        }
+    }
 }

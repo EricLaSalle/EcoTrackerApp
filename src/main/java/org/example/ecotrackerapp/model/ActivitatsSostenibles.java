@@ -74,7 +74,7 @@ public class ActivitatsSostenibles {
     public double getCo2TotalEstalviat() {
         return co2TotalEstalviat;
     }
-    public void setCo2TotalEstalviat(float co2Estalviat) {
+    public void setCo2TotalEstalviat(double co2Estalviat) {
         this.co2TotalEstalviat = co2TotalEstalviat;
     }
 
