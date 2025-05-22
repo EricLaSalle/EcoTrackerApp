@@ -1,6 +1,6 @@
 # Documentació  
 
-## Document Tècnic del Projecte  
+## Document Tècnica del Projecte  
 
 ### Descripció General del Projecte  
 
