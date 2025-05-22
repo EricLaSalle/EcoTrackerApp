@@ -45,6 +45,10 @@ public class GestorBbDd {
     public static void setSumaCo2TotalEstalviat(double sumaCo2TotalEstalviat) {
         GestorBbDd.sumaCo2TotalEstalviat = sumaCo2TotalEstalviat;
     }
+    //Get de connection
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, user, password);
+    }
 
     /**
      * Mètode per obtenir una instància de la classe GestorBbDd SINGLETON.
@@ -141,6 +145,11 @@ public class GestorBbDd {
         }
     }
 
+    /**
+     * Mètode que afegeix una activitat a la base de dades
+     * @param activitat
+     * @throws SQLException
+     */
     public static void afegirActivitataBBDD(ActivitatsSostenibles activitat) throws SQLException {
         Connection connection = DriverManager.getConnection(url, user, password);
         String query = "INSERT INTO activitatssostenibles (nom, data, nomcategoria, descripcio, quantitat, co2totalestalviat) VALUES (?, ?, ?, ?, ?, ?)";
@@ -156,8 +165,17 @@ public class GestorBbDd {
         connection.close();
     }
 
-    //Get de connection
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+    /**
+     * Mètode que elimina una activitat de la base de dades
+     * @param id
+     * @throws SQLException
+     */
+    public static void eliminarActivitatBBDD(int id) throws SQLException {
+        Connection connection = DriverManager.getConnection(url, user, password);
+        String query = "DELETE FROM activitatssostenibles WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, id);
+        preparedStatement.executeUpdate();
+        connection.close();
     }
 }

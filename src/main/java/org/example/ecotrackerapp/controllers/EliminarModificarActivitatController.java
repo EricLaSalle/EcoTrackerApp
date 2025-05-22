@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.ActivitatsSostenibles;
 import org.example.ecotrackerapp.model.GestorBbDd;
 
+import java.sql.SQLException;
+
 public class EliminarModificarActivitatController {
     //Declaració de valors fxml
     @FXML private TextField idActivitat;
@@ -84,18 +86,23 @@ public class EliminarModificarActivitatController {
      * Elimina o modifica l'activitat seleccionada a la taula.
      */
     @FXML
-    private void onClickContinuar() {
+    private void onClickContinuar() throws SQLException {
         if (eliminarOmodificar.getSelectionModel().getSelectedItem().equals("Eliminar")) {
             //Eliminar l'activitat seleccionada
             ActivitatsSostenibles activitat = tablaActividades.getSelectionModel().getSelectedItem();
             if (activitat != null) {
-                GestorBbDd.eliminarActivitat(activitat);
+                int id=activitat.getId();
+                //Eliminar l'activitat de la base de dades i de la llista
+                GestorBbDd.eliminarActivitatBBDD(id);
+                GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());
+                //Missatge d'alerta informatiu
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Activitat eliminada");
                 alert.setHeaderText("Activitat eliminada correctament");
                 alert.setContentText("L'activitat ha estat eliminada correctament de la base de dades.");
                 alert.showAndWait();
             } else {
+                //Missatge d'error si no s'ha seleccionat cap activitat
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("No s'ha seleccionat cap activitat");
@@ -106,8 +113,10 @@ public class EliminarModificarActivitatController {
             //Modificar l'activitat seleccionada
             ActivitatsSostenibles activitat = tablaActividades.getSelectionModel().getSelectedItem();
             if (activitat != null) {
-                
+                int id=activitat.getId();
+
             } else {
+                //Missatge d'error si no s'ha seleccionat cap activitat
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("No s'ha seleccionat cap activitat");
