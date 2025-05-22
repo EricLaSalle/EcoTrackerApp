@@ -36,7 +36,7 @@ public class IniciIMenuController {
         // Carregar la nova finestra
         FXMLLoader fxmlLoader = new FXMLLoader(IniciIMenuController.class.getResource("/org/example/ecotrackerapp/view/menu.fxml"));
         Stage stage = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 300, 200);
         stage.setTitle("Ecotracker App");
         stage.setScene(scene);
         stage.setMaximized(true);
@@ -73,7 +73,10 @@ public class IniciIMenuController {
         Scene scene = new Scene(loader.load(), 800, 600);
         stage.setTitle("Menú Gestor d'Activitats Sostenibles");
         stage.setScene(scene);
-        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setMaximized(true);
         stage.show();
+
+        Stage ventanaActual = (Stage) openAppButton.getScene().getWindow();
+        ventanaActual.close();
     }
 }
