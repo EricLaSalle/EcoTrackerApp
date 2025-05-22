@@ -2,10 +2,8 @@ package org.example.ecotrackerapp.controllers;
 
 import com.dlsc.formsfx.model.structure.IntegerField;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.ActivitatsSostenibles;
 import org.example.ecotrackerapp.model.GestorBbDd;
 
@@ -21,6 +19,7 @@ public class EliminarModificarActivitatController {
     @FXML private TableColumn<ActivitatsSostenibles, Double> colQuantitat;
     @FXML private TableColumn<ActivitatsSostenibles, Double> colCo2;
     @FXML private ChoiceBox<String> eliminarOmodificar;
+    @FXML private Button cancelarButton;
 
     /**
      * Aquest mètode inicialitza la vista de la llista d'activitats sostenibles.
@@ -68,6 +67,52 @@ public class EliminarModificarActivitatController {
             if (activitat.getId() == Integer.parseInt(idActivitat.getText())) {
                 tablaActividades.getItems().add(activitat);
                 break;
+            }
+        }
+    }
+
+    /**
+     * Tanca la finestra si es prem cancelar
+     */
+    @FXML
+    private void onClickCancelar() {
+        //Tancar la finestra actual
+        ((Stage) cancelarButton.getScene().getWindow()).close();
+    }
+
+    /**
+     * Elimina o modifica l'activitat seleccionada a la taula.
+     */
+    @FXML
+    private void onClickContinuar() {
+        if (eliminarOmodificar.getSelectionModel().getSelectedItem().equals("Eliminar")) {
+            //Eliminar l'activitat seleccionada
+            ActivitatsSostenibles activitat = tablaActividades.getSelectionModel().getSelectedItem();
+            if (activitat != null) {
+                GestorBbDd.eliminarActivitat(activitat);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Activitat eliminada");
+                alert.setHeaderText("Activitat eliminada correctament");
+                alert.setContentText("L'activitat ha estat eliminada correctament de la base de dades.");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("No s'ha seleccionat cap activitat");
+                alert.setContentText("Si us plau, selecciona una activitat per eliminar.");
+                alert.showAndWait();
+            }
+        } else if (eliminarOmodificar.getSelectionModel().getSelectedItem().equals("Modificar")) {
+            //Modificar l'activitat seleccionada
+            ActivitatsSostenibles activitat = tablaActividades.getSelectionModel().getSelectedItem();
+            if (activitat != null) {
+                
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("No s'ha seleccionat cap activitat");
+                alert.setContentText("Si us plau, selecciona una activitat per modificar.");
+                alert.showAndWait();
             }
         }
     }
