@@ -2,7 +2,6 @@ package org.example.ecotrackerapp.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.GestorBbDd;
@@ -13,14 +12,12 @@ public class AfegirDadesDesdeArxiuController {
     //Elements fxml
     @FXML
     private TextField rutaArxiuField;
-    @FXML
-    private Label missatgeLabel;
 
     /**
      * Mètode per gestionar l'acció d'afegir dades des d'arxiu
      */
     @FXML
-    private void handleAfegirDades() {
+    public void handleAfegirDades() {
         String rutaArxiu = rutaArxiuField.getText().trim();
 
         // Validacions bàsiques

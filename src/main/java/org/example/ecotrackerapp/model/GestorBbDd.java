@@ -139,7 +139,7 @@ public class GestorBbDd {
     /**
      * Mètode que calcula la suma total de CO2 estalviat
      */
-    private static void calcularSumaCo2TotalEstalviat() {
+    public static void calcularSumaCo2TotalEstalviat() {
         sumaCo2TotalEstalviat = 0;
         for (ActivitatsSostenibles activitat : LlistaActivitatsSostenibles) {
             sumaCo2TotalEstalviat += activitat.getCo2TotalEstalviat();
