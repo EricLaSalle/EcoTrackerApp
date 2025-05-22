@@ -7,13 +7,6 @@
 _Eco Tracker App és una aplicació desenvolupada per ajudar les empreses a portar_  
 els comptes de quilograms de CO2 estalviats, amb una senzilla, interactiva i  
 completa interfície capaç que l’usuari pugui guiar-se per ella fàcilment i sense gran  
-coneixement d’informàtica.  
-
-En aquesta aplic
-
-_Eco Tracker App_ és una aplicació desenvolupada per ajudar les empreses a portar
-els comptes de quilograms de CO2 estalviats, amb una senzilla, interactiva i
-completa interfície capaç que l’usuari pugui guiar-se per ella fàcilment i sense gran
 coneixement d’informàtica.
 
 En aquesta aplicació, l’usuari podrà veure el llistat de dades inserides d’una manera
