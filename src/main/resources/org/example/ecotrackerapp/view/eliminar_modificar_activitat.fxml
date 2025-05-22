@@ -3,23 +3,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import com.sun.javafx.scene.control.IntegerField?>
+<?import javafx.scene.text.Text?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.EliminarModificarActivitatController">
     <children>
         <Label layoutX="156.0" layoutY="75.0" text="Introdueix l'identificador de l'activitat que vols eliminar o modificar" />
-        <TextField layoutX="226.0" layoutY="107.0" />
-        <TableView fx:id="tablaActividades" layoutY="270.0" prefHeight="115.0" prefWidth="601.0">
+        <TextField fx:id="idActivitat" layoutX="226.0" layoutY="107.0" />
+        <TableView fx:id="tablaActividades" layoutY="248.0" style="-fx-table-cell-border-color: transparent;">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="colNom" prefWidth="82.66666412353516" text="Nom" />
-                <TableColumn fx:id="colData" prefWidth="74.0" text="Data" />
-                <TableColumn fx:id="colCategoria" prefWidth="88.33332824707031" text="Categoria" />
-                <TableColumn fx:id="colDescripcio" prefWidth="85.0" text="Descripció" />
-                <TableColumn fx:id="colQuantitat" prefWidth="72.33331298828125" text="Quantitat" />
-                <TableColumn fx:id="colCo2" prefWidth="121.999989827474" text="CO2 estalviat (kg)" />
+                <TableColumn fx:id="colId" prefWidth="50" style="-fx-alignment: CENTER;" text="ID" />
+                <TableColumn fx:id="colNom" prefWidth="150" text="Nom" />
+                <TableColumn fx:id="colData" prefWidth="100" text="Data" />
+                <TableColumn fx:id="colCategoria" prefWidth="120" text="Categoria" />
+                <TableColumn fx:id="colDescripcio" prefWidth="250" text="Descripció" />
+                <TableColumn fx:id="colQuantitat" prefWidth="80" style="-fx-alignment: CENTER-RIGHT;" text="Quantitat" />
+                <TableColumn fx:id="colCo2" prefWidth="120" style="-fx-alignment: CENTER-RIGHT;" text="CO₂ Estalviat (kg)" />
             </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
         </TableView>
         <Button layoutX="344.0" layoutY="212.0" mnemonicParsing="false" text="Cancelar" />
         <Button layoutX="200.0" layoutY="212.0" mnemonicParsing="false" text="Continuar" />
-      <ChoiceBox layoutX="226.0" layoutY="156.0" prefWidth="150.0"/>
+      <ChoiceBox layoutX="226.0" layoutY="156.0" prefWidth="150.0" />
     </children>
 </AnchorPane>
