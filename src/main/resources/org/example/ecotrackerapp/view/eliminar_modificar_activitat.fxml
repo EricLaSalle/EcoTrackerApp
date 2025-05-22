@@ -4,23 +4,22 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.EliminarModificarActivitatController">
-   <children>
-      <Label layoutX="156.0" layoutY="75.0" text="Introdueix l'identificador de l'activitat que vols eliminar o modificar" />
-      <TextField layoutX="226.0" layoutY="107.0" />
-      <TableView layoutY="270.0" prefHeight="115.0" prefWidth="601.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="82.66666412353516" text="Nom" />
-            <TableColumn prefWidth="74.0" text="Data" />
-            <TableColumn prefWidth="88.33332824707031" text="Categoria" />
-            <TableColumn prefWidth="85.0" text="Descripció" />
-            <TableColumn prefWidth="72.33331298828125" text="Quantitat" />
-            <TableColumn prefWidth="121.999989827474" text="CO2 estalviat (kg)" />
-        </columns>
-      </TableView>
-      <Button layoutX="344.0" layoutY="212.0" mnemonicParsing="false" text="Cancelar" />
-      <Button layoutX="200.0" layoutY="212.0" mnemonicParsing="false" text="Continuar" />
-      <RadioButton layoutX="257.0" layoutY="150.0" mnemonicParsing="false" text="Eliminar" />
-      <RadioButton layoutX="265.0" layoutY="182.0" mnemonicParsing="false" text="Modificar" />
-   </children>
+    <children>
+        <Label layoutX="156.0" layoutY="75.0" text="Introdueix l'identificador de l'activitat que vols eliminar o modificar" />
+        <TextField layoutX="226.0" layoutY="107.0" />
+        <TableView fx:id="tablaActividades" layoutY="270.0" prefHeight="115.0" prefWidth="601.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="colNom" prefWidth="82.66666412353516" text="Nom" />
+                <TableColumn fx:id="colData" prefWidth="74.0" text="Data" />
+                <TableColumn fx:id="colCategoria" prefWidth="88.33332824707031" text="Categoria" />
+                <TableColumn fx:id="colDescripcio" prefWidth="85.0" text="Descripció" />
+                <TableColumn fx:id="colQuantitat" prefWidth="72.33331298828125" text="Quantitat" />
+                <TableColumn fx:id="colCo2" prefWidth="121.999989827474" text="CO2 estalviat (kg)" />
+            </columns>
+        </TableView>
+        <Button layoutX="344.0" layoutY="212.0" mnemonicParsing="false" text="Cancelar" />
+        <Button layoutX="200.0" layoutY="212.0" mnemonicParsing="false" text="Continuar" />
+      <ChoiceBox layoutX="226.0" layoutY="156.0" prefWidth="150.0"/>
+    </children>
 </AnchorPane>
