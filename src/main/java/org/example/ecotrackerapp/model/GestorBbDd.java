@@ -217,9 +217,10 @@ public class GestorBbDd {
      * @return true si s'han afegit les dades correctament, false si hi ha hagut algun error
      */
     public static boolean afegirArxiuActivitats(String rutaArxiu, Connection connection) {
-        PreparedStatement preparedStatement = null;
-
         try {
+            //Convertim les contrabarres a barres
+            rutaArxiu = rutaArxiu.replace("\\", "/");
+
             // Verificar que l'arxiu existeix abans de començar
             File arxiu = new File(rutaArxiu);
             if (!arxiu.exists() || !arxiu.canRead()) {
@@ -228,13 +229,14 @@ public class GestorBbDd {
             }
 
             // Preparar la consulta
-            String query = "LOAD DATA INFILE ? INTO TABLE activitatssostenibles " +
-                    "FIELDS TERMINATED BY ';' " +
-                    "LINES TERMINATED BY '\n' " +
-                    "IGNORE 1 LINES " +
+            String query = "LOAD DATA INFILE ?\n" +
+                    "INTO TABLE activitatssostenibles\n" +
+                    "FIELDS TERMINATED BY ';'\n" +
+                    "LINES TERMINATED BY '\\n'\n" +
+                    "IGNORE 1 ROWS \n" +
                     "(nom, data, nomcategoria, descripcio, quantitat, co2totalestalviat)";
 
-            preparedStatement = connection.prepareStatement(query);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, rutaArxiu);
 
             // Executar la consulta
