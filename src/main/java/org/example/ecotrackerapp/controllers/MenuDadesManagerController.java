@@ -18,7 +18,7 @@ public class MenuDadesManagerController {
     private void onClickAfegirActivitat() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/afegir_modificar_activitat.fxml"));
         Stage stage = new Stage();
-        Scene scene = new Scene(loader.load(), 800, 600);
+        Scene scene = new Scene(loader.load(), 600, 400);
         stage.setTitle("Afegir Activitat Sostenible");
         stage.setScene(scene);
         stage.initModality(Modality.WINDOW_MODAL);
@@ -48,7 +48,7 @@ public class MenuDadesManagerController {
     private void onClickAfegirDesdeArxiu() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/afegir_dades_desde_arxiu.fxml"));
         Stage stage = new Stage();
-        Scene scene = new Scene(loader.load(), 800, 600);
+        Scene scene = new Scene(loader.load(), 600, 300);
         stage.setTitle("Afegir Activitats Sostenibles des d'un Arxiu");
         stage.setScene(scene);
         stage.initModality(Modality.WINDOW_MODAL);
