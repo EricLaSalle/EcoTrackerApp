@@ -97,7 +97,7 @@ public class AfegirModificarActivitatController {
     /**
      * Calcula el CO₂ estalviat en funció de la categoria seleccionada i la quantitat introduïda.
      */
-    private void calcularCo2() {
+    void calcularCo2() {
         try {
             if (categoriaCombo.getValue() != null && !quantitatField.getText().isEmpty()) {
                 double quantitat = Double.parseDouble(quantitatField.getText());
@@ -139,7 +139,6 @@ public class AfegirModificarActivitatController {
 
                 // Actualitzar l'activitat a la base de dades i a la llista
                 GestorBbDd.modificarActivitat(activitat, GestorBbDd.getConnection());
-                GestorBbDd.calcularSumaCo2TotalEstalviat();
 
                 //Mostrem un missatge d'èxit
                 mostrarAlerta("Èxit", "Activitat modificada correctament", Alert.AlertType.INFORMATION);

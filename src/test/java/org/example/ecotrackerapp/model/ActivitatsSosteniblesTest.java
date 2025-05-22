@@ -12,10 +12,9 @@ class ActivitatsSosteniblesTest {
      * @param nomCategoria
      * @return Categoria
      */
-    private Categoria crearCategoriaMock(String nomCategoria) {
-        Categoria categoriaMock = Mockito.mock(Categoria.class);
-        Mockito.when(categoriaMock.getNomCategoria()).thenReturn(nomCategoria);
-        return categoriaMock;
+    private Categoria crearCategoria(String nomCategoria) {
+        Categoria categoria = new Categoria(1, nomCategoria, "Descripció", 1.0);
+        return categoria;
     }
 
     /**
@@ -23,8 +22,8 @@ class ActivitatsSosteniblesTest {
      */
     @Test
     void testCalculCo2_Transport() {
-        Categoria transportMock = crearCategoriaMock("TRANSPORT");
-        ActivitatsSostenibles activitat = new ActivitatsSostenibles("Bici al treball", LocalDate.now(), transportMock, "Desplaçament sostenible", 100);
+        Categoria transport = crearCategoria("TRANSPORT");
+        ActivitatsSostenibles activitat = new ActivitatsSostenibles("Bici al treball", LocalDate.now(), transport, "Desplaçament sostenible", 100);
         assertEquals(20.0, activitat.getCo2TotalEstalviat());
     }
 
@@ -33,8 +32,8 @@ class ActivitatsSosteniblesTest {
      */
     @Test
     void testCalculCo2_CategoriaDesconeguda() {
-        Categoria desconegudaMock = crearCategoriaMock("FICTICIA");
-        ActivitatsSostenibles activitat = new ActivitatsSostenibles("Activitat Nova", LocalDate.now(), desconegudaMock, "Sense categoria", 200);
+        Categoria desconeguda = crearCategoria("FICTICIA");
+        ActivitatsSostenibles activitat = new ActivitatsSostenibles("Activitat Nova", LocalDate.now(), desconeguda, "Sense categoria", 200);
         assertEquals(80.0, activitat.getCo2TotalEstalviat()); // 0.4 * 200 = 80
     }
 
@@ -43,8 +42,8 @@ class ActivitatsSosteniblesTest {
      */
     @Test
     void testConstructorAmbCo2Manual() {
-        Categoria residusMock = crearCategoriaMock("RESIDUS");
-        ActivitatsSostenibles activitat = new ActivitatsSostenibles(1, "Reciclar plàstic", LocalDate.now(), residusMock, "Reducció de residus", 30, 999
+        Categoria residus = crearCategoria("RESIDUS");
+        ActivitatsSostenibles activitat = new ActivitatsSostenibles(1, "Reciclar plàstic", LocalDate.now(), residus, "Reducció de residus", 30, 999
         );
         assertEquals(999.0, activitat.getCo2TotalEstalviat()); // No es calcula automàticament
     }

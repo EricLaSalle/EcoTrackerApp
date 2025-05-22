@@ -81,6 +81,6 @@ class GestorBbDdTest {
         // Verificar paràmetres de l'UPDATE
         Mockito.verify(psMock).setString(1, "Nou");
         Mockito.verify(psMock).setString(3, "RESIDUS");
-        Mockito.verify(psMock).setInt(7, 1); // ID
+        Mockito.verify(psMock).setInt(7, 1);
     }
 }
