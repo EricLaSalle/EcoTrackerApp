@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.ecotrackerapp.controllers.GraficController">
+
+    <LineChart fx:id="lineChart" layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="700.0"
+               AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+        <xAxis>
+            <CategoryAxis fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" />
+        </yAxis>
+    </LineChart>
+
+    <Label layoutX="350.0" layoutY="20.0" text="Estalvi de CO₂ per Data" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+</AnchorPane>

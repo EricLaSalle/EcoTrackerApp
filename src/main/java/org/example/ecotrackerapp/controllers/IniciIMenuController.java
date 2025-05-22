@@ -63,7 +63,7 @@ public class IniciIMenuController {
     }
 
     /**
-     * Auest mètode mostra una nova finestra on es poden manejar les activitats sostenibles.
+     * Aquest mètode mostra una nova finestra on es poden manejar les activitats sostenibles.
      * @throws IOException
      */
     @FXML

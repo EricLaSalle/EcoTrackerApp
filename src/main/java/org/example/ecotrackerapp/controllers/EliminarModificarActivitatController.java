@@ -11,7 +11,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.ActivitatsSostenibles;
 import org.example.ecotrackerapp.model.GestorBbDd;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -84,9 +83,11 @@ public class EliminarModificarActivitatController {
      */
     private void buscarActivitat() {
         try {
+            //Obtenim l'ID de l'activitat del TextField
             int idBuscado = Integer.parseInt(idActivitat.getText());
             activitatSeleccionada = null;
 
+            //Busquem l'activitat a la llista d'activitats sostenibles
             for (ActivitatsSostenibles activitat : GestorBbDd.getLlistaActivitatsSostenibles()) {
                 if (activitat.getId() == idBuscado) {
                     activitatSeleccionada = activitat;
@@ -94,6 +95,7 @@ public class EliminarModificarActivitatController {
                 }
             }
 
+            //Si l'activitat seleccionada no és null, omplim la taula amb les dades de l'activitat
             if (activitatSeleccionada != null) {
                 ObservableList<ActivitatsSostenibles> datos = FXCollections.observableArrayList(activitatSeleccionada);
                 tablaActividades.setItems(datos);
@@ -112,20 +114,24 @@ public class EliminarModificarActivitatController {
      */
     @FXML
     private void onClickContinuar() throws SQLException, IOException {
+        //Obtenim l'acció que es vol fer (Eliminar o Modificar)
         String accion = eliminarOmodificar.getSelectionModel().getSelectedItem();
 
+        //Validem que s'ha seleccionat una acció i que s'ha seleccionat una activitat
         if (accion == null) {
             mostrarAlerta("Error", "Selecciona una acció (Eliminar o Modificar)", Alert.AlertType.ERROR);
             return;
         }
 
+        //Validem que s'ha seleccionat una activitat
         if (activitatSeleccionada == null) {
             mostrarAlerta("Error", "No s'ha seleccionat cap activitat", Alert.AlertType.ERROR);
             return;
         }
 
+        //Segons l'acció seleccionada, eliminem o modifiquem l'activitat
         if ("Eliminar".equals(accion)) {
-            // Eliminar la actividad
+            // Eliminar l'activitat
             int id = activitatSeleccionada.getId();
             GestorBbDd.eliminarActivitatBBDD(id, GestorBbDd.getConnection());
             GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());

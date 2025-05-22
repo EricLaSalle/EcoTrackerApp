@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.GestorBbDd;
-
 import java.io.File;
 
 public class AfegirDadesDesdeArxiuController {

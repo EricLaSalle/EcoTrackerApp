@@ -27,7 +27,7 @@ public class AfegirModificarActivitatController {
     private int idActividadOriginal;
 
     /**
-     * Método para configurar el controlador en modo modificación
+     * Mètode per configurar el controlador en mode modificació
      * @param actividad
      */
     public void setActividadAModificar(ActivitatsSostenibles actividad) {
@@ -42,15 +42,13 @@ public class AfegirModificarActivitatController {
         // Omple els camps amb els valors actuals de l'activitat a modificar
         nomField.setText(actividad.getNom());
         dataPicker.setValue(actividad.getData());
-
-        // Buscar y seleccionar la categoría correspondiente
+        // Buscar i seleccionar la categoria corresponent
         for (int i = 0; i < GestorBbDd.getLlistaCategories().size(); i++) {
             if (GestorBbDd.getLlistaCategories().get(i).getNomCategoria().equals(actividad.getCategoria().getNomCategoria())) {
                 categoriaCombo.getSelectionModel().select(i);
                 break;
             }
         }
-
         descripcioArea.setText(actividad.getDescripcio());
         quantitatField.setText(String.valueOf(actividad.getQuantitat()));
     }
@@ -89,6 +87,7 @@ public class AfegirModificarActivitatController {
             calcularCo2();
         });
 
+        // Actualitzar la etiqueta de quantitat i el prompt text segons la categoria seleccionada
         categoriaCombo.valueProperty().addListener((obs, oldVal, newVal) -> {
             actualizarEtiquetaQuantitat(GestorBbDd.getLlistaCategories().get(categoriaCombo.getSelectionModel().getSelectedIndex()));
             calcularCo2();
@@ -126,6 +125,7 @@ public class AfegirModificarActivitatController {
                 return;
             }
 
+            // Obtenir valors dels camps
             String nom = nomField.getText();
             LocalDate data = dataPicker.getValue();
             Categoria categoria = GestorBbDd.getLlistaCategories().get(categoriaCombo.getSelectionModel().getSelectedIndex());
@@ -171,6 +171,7 @@ public class AfegirModificarActivitatController {
     private void actualizarEtiquetaQuantitat(Categoria categoria) {
         if (categoria == null) return;
 
+        // Actualitzar la etiqueta de quantitat i el prompt text segons la categoria seleccionada
         switch (categoria.getNomCategoria()) {
             case "Transport":
                 quantitatLabel.setText("Distància (km):");

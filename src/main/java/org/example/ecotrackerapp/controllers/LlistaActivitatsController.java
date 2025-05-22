@@ -4,11 +4,16 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.example.ecotrackerapp.model.ActivitatsSostenibles;
 import org.example.ecotrackerapp.model.GestorBbDd;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class LlistaActivitatsController {
@@ -47,15 +52,37 @@ public class LlistaActivitatsController {
         cargarDatos();
     }
 
+    /**
+     * Aquest mètode carrega les dades de les activitats sostenibles a la taula.
+     */
     private void cargarDatos() {
         ObservableList<ActivitatsSostenibles> datos = FXCollections.observableArrayList(GestorBbDd.getLlistaActivitatsSostenibles());
+
 
         tablaActividades.setItems(datos);
         mostrarTotalCo2();
     }
 
+    /**
+     * Aquest mètode mostra el total de CO2 estalviat a la interfície d'usuari.
+     */
     private void mostrarTotalCo2() {
         double total = GestorBbDd.getSumaCo2TotalEstalviat();
         totalCo2.setText(String.format("%,.2f kg CO₂", total));
+    }
+
+    /**
+     * Aquest mètode s'executa quan es fa clic al botó "Afegir Activitat" i mostra la finestra del gràfic.
+     * @throws IOException
+     */
+    @FXML
+    private void onClickGraficButton() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/grafic.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(loader.load(), 800, 600);
+        stage.setTitle("Gràfic d'Activitats Sostenibles segons la Data");
+        stage.setScene(scene);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.show();
     }
 }
