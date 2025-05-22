@@ -1,0 +1,91 @@
+nom;data;nomCategoria;descripcio;quantitat;co2TotalEstalviat
+Caminar al supermercat;2023-01-18;Transport;Anar a peu a comprar;1.5;0.3
+Apagar ordinador;2023-01-22;Energia;Desconnectar equip quan no s'utilitza;480;432
+Menjar de tapper;2023-02-08;Alimentació;Portar dinar preparat de casa;6;4.2
+Reciclar vidre color;2023-02-12;Residus;Separar vidre marró i verd;7;4.2
+Cistella tela;2023-02-18;Altres;Utilitzar cistella de tela per la compra;4;1.6
+Bus exprés;2023-03-03;Transport;Utilitzar línia ràpida d'autobús;18;3.6
+Aïllament porta;2023-03-12;Energia;Col·locar burletes a les portes;220;198
+Menys embotits;2023-03-22;Alimentació;Reduir consum de productes processats;3;2.1
+Reciclar llibres;2023-04-08;Residus;Donar llibres usats a biblioteca;9;5.4
+Reparar moble;2023-04-18;Altres;Restaurar moble antic enlloc de nou;2;0.8
+Passejar gos;2023-05-03;Transport;Caminar amb el gos enlloc de cotxe;2;0.4
+Rentat eco;2023-05-12;Energia;Programa eco de rentadora;90;81
+Hort urbà;2023-05-22;Alimentació;Participar en hort comunitari;8;5.6
+Pilots;2023-06-08;Residus;Reciclar làmpades fluorescents;4;2.4
+Biblioteca joguines;2023-06-18;Altres;Utilitzar biblioteca de joguines;5;2
+Motxilla elèctrica;2023-07-03;Transport;Motxilla amb panell solar per càrrega;5;1
+Dutxa ràpida;2023-07-12;Energia;Reduir temps de dutxa a 5 min;25;22.5
+Menjar cru;2023-07-22;Alimentació;Augmentar aliments crus;4;2.8
+Paper regal;2023-08-08;Residus;Reutilitzar paper de regal;6;3.6
+Intercanvi llibres;2023-08-18;Altres;Intercanviar llibres amb amics;7;2.8
+Skateboard;2023-09-03;Transport;Desplaçament amb skate;4;0.8
+Ventanes tancades;2023-09-12;Energia;Mantenir finestres tancades amb climatització;300;270
+Sopa casolana;2023-09-22;Alimentació;Fer sopa casolana enlloc de llata;5;3.5
+Bidons;2023-10-08;Residus;Reciclar bidons de detergents;5;3
+Jocs tradicionals;2023-10-18;Altres;Jugar a jocs tradicionals enlloc de consola;3;1.2
+Transport escolar;2023-11-03;Transport;Acompanyar nens a peu a l'escola;1;0.2
+Calefacció puntual;2023-11-12;Energia;Escalfar només habitacions usades;400;360
+Menjar lentament;2023-11-22;Alimentació;Menjar sense pressa per millor digestió;2;1.4
+Caixes fruita;2023-12-08;Residus;Reciclar caixes de fruiteria;10;6
+Taller bicis;2023-12-18;Altres;Participar en taller de reparació bicis;4;1.6
+Patinet compartit;2024-01-03;Transport;Utilitzar patinet elèctric compartit;6;1.2
+Aigua pluja;2024-01-12;Energia;Recollir aigua de pluja per reg;500;450
+Ous ecològics;2024-01-22;Alimentació;Comprar ous de producció ecològica;6;4.2
+Envàs retornable;2024-02-08;Residus;Utilitzar envàs amb sistema de retorn;8;4.8
+Comunitat energia;2024-02-18;Altres;Participar en comunitat energètica local;10;4
+Tren regional;2024-03-03;Transport;Viatge en tren regional;45;9
+Radiadors nets;2024-03-12;Energia;Netejar radiadors per millor rendiment;180;162
+Menjar sencer;2024-03-22;Alimentació;Consumir fruits i verdures amb pell;5;3.5
+Bossa compra;2024-04-08;Residus;Utilitzar bosses reutilitzables;15;9
+Excursió local;2024-04-18;Altres;Fer turisme local enlloc de viatge llarg;5;2
+Bici plegable;2024-05-03;Transport;Combinar bici plegable amb transport públic;9;1.8
+Nevera plena;2024-05-12;Energia;Mantenir nevera ben organitzada;240;216
+Llegum seca;2024-05-22;Alimentació;Comprar llegums a granel;4;2.8
+Llauna oli;2024-06-08;Residus;Reciclar llaunes d'oli;2;1.2
+Mercat intercanvi;2024-06-18;Altres;Participar en mercat d'intercanvi;6;2.4
+Telefeina;2024-07-03;Transport;Treballar des de casa 1 dia/setmana;0;0
+Vasos reutilitzables;2024-07-12;Energia;Evitar vasos desenbrants a l'oficina;150;135
+Formatge vegetal;2024-07-22;Alimentació;Provar alternatives vegetals;3;2.1
+Joguines fusta;2024-08-08;Residus;Donar joguines de fusta usades;5;3
+Reparar sabates;2024-08-18;Altres;Arreglar sabates enlloc de noves;2;0.8
+Autobús nocturn;2024-09-03;Transport;Utilitzar servei nocturn d'autobús;15;3
+Aigua freda;2024-09-12;Energia;Rentar plats amb aigua freda;90;81
+Menjar equilibrat;2024-09-22;Alimentació;Dieta equilibrada per reduir residus;4;2.8
+Paper continu;2024-10-08;Residus;Utilitzar paper continu en impressores;12;7.2
+Curs online;2024-10-18;Altres;Fer cursos online enlloc de presencials;8;3.2
+Monopatí llarg;2024-11-03;Transport;Desplaçaments llargs amb monopatí;7;1.4
+Termòstat intel·ligent;2024-11-12;Energia;Instal·lar termòstat intel·ligent;350;315
+Pasta casolana;2024-11-22;Alimentació;Fer pasta fresca a casa;3;2.1
+Brick vi;2024-12-08;Residus;Reciclar brics de vi;6;3.6
+Taller costura;2024-12-18;Altres;Aprenentatge per reparar roba;4;1.6
+Bici cargo;2025-01-03;Transport;Utilitzar bicicleta de càrrega;8;1.6
+Aeradors;2025-01-12;Energia;Instal·lar aeradors a aixetes;200;180
+Menjar conscient;2025-01-22;Alimentació;Menjar sense distraccions;3;2.1
+Tela vellutera;2025-02-08;Residus;Reciclar roba de tela vellutera;5;3
+Joc cartes;2025-02-18;Altres;Jocs de cartes enlloc de videojocs;5;2
+Tramvia;2025-03-03;Transport;Utilitzar xarxa de tramvia;12;2.4
+Rentat sol;2025-03-12;Energia;Assecar roba al sol;180;162
+Verdures congelades;2025-03-22;Alimentació;Reduir consum de congelats;4;2.8
+Bossa xarxa;2025-04-08;Residus;Utilitzar bosses de xarxa per fruita;10;6
+Llibre digital;2025-04-18;Altres;Llegir en lectors digitals;15;6
+Moto compartida;2025-05-03;Transport;Utilitzar moto elèctrica compartida;10;2
+Cobertor;2025-05-12;Energia;Utilitzar cobertor per escalfar-se;300;270
+Fruita local;2025-05-22;Alimentació;Comprar fruita de temporada local;6;4.2
+Llauna beguda;2025-06-08;Residus;Reciclar llaunes de refresc;8;4.8
+Joc exterior;2025-06-18;Altres;Jugar a l'aire lliure;5;2
+Bici piscina;2025-07-03;Transport;Bicicleta per anar a la piscina;5;1
+Ventilació creuada;2025-07-12;Energia;Ventilació natural creuada;120;108
+Iogurt vegetal;2025-07-22;Alimentació;Fer iogurt vegetal a casa;4;2.8
+CDs;2025-08-08;Residus;Reciclar CDs i DVDs usats;3;1.8
+Fira artesana;2025-08-18;Altres;Comprar a fira d'artesania local;4;1.6
+Moto elèctrica;2025-09-03;Transport;Utilitzar moto elèctrica diària;20;4
+Aïllament sostre;2025-09-12;Energia;Millorar aïllament del sostre;400;360
+Pa integral;2025-09-22;Alimentació;Consumir pa integral local;7;4.9
+Bidó oli;2025-10-08;Residus;Reciclar bidons d'oli usat;4;2.4
+Taller joguines;2025-10-18;Altres;Reparar joguines enlloc de noves;3;1.2
+Autobús escolar;2025-11-03;Transport;Utilitzar autobús escolar compartit;25;5
+Purga calorifers;2025-11-12;Energia;Purga anual dels radiadors;150;135
+Llet vegetal;2025-11-22;Alimentació;Fer llet vegetal a casa;5;3.5
+Paper contínuum;2025-12-08;Residus;Reciclar paper continu d'oficina;25;15
+Cinema barri;2025-12-18;Altres;Anar a cinema de barri;3;1.2

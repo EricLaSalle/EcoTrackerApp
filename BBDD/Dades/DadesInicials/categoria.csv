@@ -1,0 +1,6 @@
+id;nom;descripcio;co2UnitariEstalviat
+1;Transport;Trajecte casa-oficina;0.2
+2;Energia;Estalvi d'electricitat, calor, gas...;0.9
+3;Alimentació;Reduir el consum d'aliments;0.7
+4;Residus;Reciclatge de materials;0.6
+5;Altres;Qualsevol categoria que no sigui cap de les anteriors;0.4

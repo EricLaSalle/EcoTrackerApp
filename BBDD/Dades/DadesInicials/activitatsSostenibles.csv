@@ -1,0 +1,101 @@
+id;nom;data;nomCategoria;descripcio;quantitat;co2TotalEstalviat
+1;Bicicleta al treball;2023-01-15;Transport;Anada i tornada en bicicleta;10;2
+2;Apagar llums;2023-01-20;Energia;Apagar llums desnecessaris;120;108
+3;Menjar local;2023-02-05;Alimentació;Consum productes locals;5;3.5
+4;Reciclar paper;2023-02-10;Residus;Reciclatge de paper a l'oficina;8;4.8
+5;Reutilització bosses;2023-02-15;Altres;Reutilitzar bosses de compra;3;1.2
+6;Transport públic;2023-03-01;Transport;Utilitzar metro enlloc de cotxe;15;3
+7;Termòstat baix;2023-03-10;Energia;Baixar termòstat 1 grau;180;162
+8;Menys carn;2023-03-20;Alimentació;Reduir consum carn setmanal;4;2.8
+9;Reciclar plàstic;2023-04-05;Residus;Separar plàstics a casa;6;3.6
+10;Compostatge;2023-04-15;Altres;Fer compost amb residus orgànics;7;2.8
+11;Caminar;2023-05-01;Transport;Caminar enlloc de conduir;2;0.4
+12;LEDs;2023-05-10;Energia;Canviar bombetes a LED;240;216
+13;Vegetarià;2023-05-20;Alimentació;Dia sense productes animals;1;0.7
+14;Vidre;2023-06-05;Residus;Reciclar ampolles de vidre;5;3
+15;Reparar;2023-06-15;Altres;Reparar electrodomèstic enlloc de nou;1;0.4
+16;Patinet;2023-07-01;Transport;Patinet elèctric per trajectes curts;8;1.6
+17;Rentadora fred;2023-07-10;Energia;Rentadora aigua freda;90;81
+18;Aigua del xarxa;2023-07-20;Alimentació;Evitar aigua embotellada;10;7
+19;Cartró;2023-08-05;Residus;Reciclar caixes de cartró;12;7.2
+20;Biblioteca;2023-08-15;Altres;Llogar llibres enlloc de comprar;5;2
+21;Cotxesharing;2023-09-01;Transport;Compartir cotxe per anar a feina;25;5
+22;Aïllament;2023-09-10;Energia;Millorar aïllament finestres;300;270
+23;Mercat;2023-09-20;Alimentació;Comprar al mercat local;8;5.6
+24;Llaunes;2023-10-05;Residus;Reciclar llaunes de conserva;3;1.8
+25;Segona mà;2023-10-15;Altres;Comprar roba de segona mà;4;1.6
+26;Autobús;2023-11-01;Transport;Utilitzar autobús urbà;12;2.4
+27;Ventilació;2023-11-10;Energia;Ventilació natural enlloc de aire;150;135
+28;De temporada;2023-11-20;Alimentació;Fruita i verdura de temporada;7;4.9
+29;Pilotes;2023-12-05;Residus;Reciclar piles usades;2;1.2
+30;Intercanvi;2023-12-15;Altres;Intercanviar objectes amb veïns;2;0.8
+31;Tren;2024-01-01;Transport;Desplaçament en tren interurbà;50;10
+32;Assecador;2024-01-10;Energia;Assecar roba al vent;200;180
+33;Ous locals;2024-01-20;Alimentació;Comprar ous de granja local;6;4.2
+34;Orgànic;2024-02-05;Residus;Separar residus orgànics;9;5.4
+35;Ebook;2024-02-15;Altres;Llegir en format digital;10;4
+36;Carpooling;2024-03-01;Transport;Viatge compartit a reunió;80;16
+37;Programador;2024-03-10;Energia;Termòstat programable;400;360
+38;Peix sostenible;2024-03-20;Alimentació;Escollir peix amb certificació;3;2.1
+39;Tela;2024-04-05;Residus;Reciclar tèxtil;5;3
+40;Joguines;2024-04-15;Altres;Donar joguines usades;6;2.4
+41;Monopatí;2024-05-01;Transport;Monopatí per trajectes curts;3;0.6
+42;Panells;2024-05-10;Energia;Instal·lació panells solars;500;450
+43;Formatge local;2024-05-20;Alimentació;Formatge de productor local;2;1.4
+44;Paper de diari;2024-06-05;Residus;Reciclar diaris i revistes;15;9
+45;Taller;2024-06-15;Altres;Participar en taller de reparació;3;1.2
+46;Bicibox;2024-07-01;Transport;Bicibox per paquets petits;4;0.8
+47;Rentavaixelles;2024-07-10;Energia;Rentavaixelles eficient;120;108
+48;Hortalisses;2024-07-20;Alimentació;Cultivar hortalisses a casa;5;3.5
+49;Metall;2024-08-05;Residus;Reciclar objectes metall;7;4.2
+50;Reutilitzar;2024-08-15;Altres;Reutilitzar pots de vidre;8;3.2
+51;Taxi compartit;2024-09-01;Transport;Taxi compartit amb company;20;4
+52;Porta;2024-09-10;Energia;Millorar aïllament porta;250;225
+53;Llegums;2024-09-20;Alimentació;Consumir més llegums;6;4.2
+54;Plàstic dur;2024-10-05;Residus;Reciclar contenidors plàstic;4;2.4
+55;Digital;2024-10-15;Altres;Facturació digital;20;8
+56;Bicicleta plegable;2024-11-01;Transport;Bicicleta plegable per combinar;7;1.4
+57;Nevera;2024-11-10;Energia;Descongelar nevera regularment;60;54
+58;Cereals;2024-11-20;Alimentació;Cereals d'agricultura ecològica;3;2.1
+59;Tetrabrik;2024-12-05;Residus;Reciclar brics de llet;10;6
+60;Regal;2024-12-15;Altres;Fer regals artesanals;2;0.8
+61;Skate;2025-01-01;Transport;Skate per desplaçaments;5;1
+62;Aerotèrmia;2025-01-10;Energia;Sistema aerotèrmic;600;540
+63;Mel local;2025-01-20;Alimentació;Mel d'apicultor local;2;1.4
+64;Joguina plàstic;2025-02-05;Residus;Reciclar joguines de plàstic;3;1.8
+65;Teatre;2025-02-15;Altres;Anar a teatre local;4;1.6
+66;Bus interurbà;2025-03-01;Transport;Bus per viatge interurbà;60;12
+67;Aigua dutxa;2025-03-10;Energia;Reduir temps dutxa;30;27
+68;Verdura congelada;2025-03-20;Alimentació;Reduir consum verdura congelada;4;2.8
+69;Bossa tela;2025-04-05;Residus;Utilitzar bosses de tela;5;3
+70;Llibre usat;2025-04-15;Altres;Comprar llibre de segona mà;3;1.2
+71;Tram;2025-05-01;Transport;Utilitzar tramvia urbà;8;1.6
+72;Ventilador;2025-05-10;Energia;Ventilador enlloc de aire;180;162
+73;Iogurt;2025-05-20;Alimentació;Fer iogurt a casa;5;3.5
+74;Xapes;2025-06-05;Residus;Reciclar CD/DVD;2;1.2
+75;Mercat artesà;2025-06-15;Altres;Comprar productes artesans;4;1.6
+76;Moto elèctrica;2025-07-01;Transport;Moto elèctrica per ciutat;15;3
+77;Coberta;2025-07-10;Energia;Coberta per piscina;200;180
+78;Fruita seca;2025-07-20;Alimentació;Comprar fruita seca a granel;3;2.1
+79;Brick suc;2025-08-05;Residus;Reciclar brics de suc;8;4.8
+80;Joc taula;2025-08-15;Altres;Jocs de taula enlloc de digital;5;2
+81;Bicicleta elèctrica;2025-09-01;Transport;Bicicleta elèctrica per pujades;12;2.4
+82;Caldera;2025-09-10;Energia;Caldera de baix consum;350;315
+83;Pa artesà;2025-09-20;Alimentació;Pa de forn local;7;4.9
+84;Bidó;2025-10-05;Residus;Reciclar bidons de plàstic;6;3.6
+85;Taller roba;2025-10-15;Altres;Reparar roba enlloc de nova;3;1.2
+86;Autobús interurbà;2025-11-01;Transport;Autobús per viatge llarg;100;20
+87;Radiadors;2025-11-10;Energia;Purga radiadors;150;135
+88;Format vegetal;2025-11-20;Alimentació;Llet i formatge vegetals;5;3.5
+89;Paper oficina;2025-12-05;Residus;Reciclar paper d'oficina;20;12
+90;Cine;2025-12-15;Altres;Cine local enlloc de gran cadena;3;1.2
+91;Camí escolar;2023-01-25;Transport;Camí escolar a peu;1;0.2
+92;Sèquia;2023-02-20;Energia;Regar amb aigua de pluja;100;90
+93;Menjar cru;2023-03-25;Alimentació;Menys aliments processats;3;2.1
+94;Punt verd;2023-04-25;Residus;Portar residus al punt verd;10;6
+95;Fira intercanvi;2023-05-25;Altres;Participar en fira d'intercanvi;5;2
+96;Roda oficina;2023-06-25;Transport;Anar a l'oficina en patinets;4;0.8
+97;Dia sense TV;2023-07-25;Energia;Dia sense televisió;480;432
+98;Hort urbà;2023-08-25;Alimentació;Participar en hort urbà;6;4.2
+99;Robatori;2023-09-25;Residus;Robatori de roba usada;8;4.8
+100;Taller bici;2023-10-25;Altres;Taller de reparació de bicis;4;1.6
