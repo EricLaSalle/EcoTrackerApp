@@ -134,8 +134,6 @@ Vistes (FXML) → Controladors ↔ Model (Activitat, DatabaseManager) ↔ Base d
 **Per exportar la base de dades i els arxius .csv de prova pots trovar-los dins del repositori a la carpeta BBDD**
 
 
-## Manual d'Usuari  
-
 ### Càlcul del CO₂  
 
 El càlcul del CO₂ hem decidit fer-lo de la següent manera:  
@@ -192,4 +190,107 @@ private double calcu1Co2Estalviat(Categoria categoria) {
         default:  
             return 0.4 * quantitat;  
     }  
-}  
+}
+````
+
+## Manual d'Usuari  
+
+### Instruccions d'Instal·lació i Execució  
+
+Un cop descarregada l'aplicació del repositori i la documentació del pou, aquests són els passos a seguir per a executar i fer servir l'aplicació sense problema:  
+
+1. **Creació de la base de dades:**  
+   - Obre l'arxiu dins de la carpeta `_BBDD`, anomenat `BBDD.sql`.  
+   - Modifica les línies indicades amb "Inserir aquí la ruta del fitxer categoria.csv" i "Inserir aquí la ruta del fitxer activitatssostenibles.csv".  
+   - Copia i enganxa la ruta absoluta dels arxius trobats a la carpeta `_Dades/DadesInicials`.  
+   - Si treballes en Windows, canvia les `\` per `/` a les rutes.  
+   - Executa el contingut del document al teu servidor per crear la base de dades i inserir dades inicials.  
+
+2. **Configuració de l'aplicació:**  
+   - Verifica les dades de connexió al servidor (URL, usuari i contrasenya) al document `GestorBbDd.java` dins de la carpeta `_src/main/java/org/example/ecotrackerapp/models`.  
+   - Assegura't que tens instal·lades totes les dependències necessàries:  
+     - Llibreria Maven de JavaFX.  
+     - Connector Java-MySQL (preferiblement el de Maven).  
+     - Tester Mockito.  
+
+---
+
+### Explicació Pas a Pas de Com Utilitzar l’Aplicació  
+
+1. **Execució inicial:**  
+   - Executa el `Main.java`.  
+   - Prem el botó per connectar amb la base de dades. Si hi ha errors, revisa la configuració de `GestorBbDd` o el connector MySQL.  
+
+2. **Llistat d’Activitats Sostenibles:**  
+   - Es mostra una taula amb totes les activitats inserides. Si no n'hi ha, verifica:  
+     - Que s'han inserit dades correctament a la base de dades.  
+     - Que la connexió amb la base de dades està activa i ben configurada.  
+
+3. **Afegir Activitat Manualment:**  
+   - Selecciona l'opció "Afegir Activitat" al menú.  
+   - Omple tots els camps obligatoris. El càlcul de CO₂ es fa automàticament.  
+   - Prem "Guardar" per confirmar o "Cancel·lar" per descartar.  
+
+4. **Afegir Activitat des d’Arxiu:**  
+   - Selecciona l'opció "Afegir des d’Arxiu".  
+   - Introdueix la ruta absoluta de l'arxiu CSV amb les dades.  
+   - L'aplicació validarà el format i la ruta abans de inserir les dades.  
+
+5. **Eliminar o Modificar Activitat:**  
+   - Selecciona l'opció "Eliminar/Modificar".  
+   - Introdueix l'ID de l'activitat i selecciona l'acció desitjada.  
+   - Per a modificacions, els camps es mostraran amb els valors actuals per editar-los.  
+
+Amb això ja pots utilitzar l'aplicació de manera eficient. Gaudeix de l'experiència!  
+
+
+## Resum del Testing  
+
+### Test Case 1 (TC01): Consultar gràfica de CO2 estalviat  
+- **Objectiu:** Verificar que es pot consultar correctament la gràfica de CO₂ estalviat.  
+- **Resultat:** Tots els passos es van completar amb èxit (Pass).  
+- **Tester:** Raul  
+- **Data:** 20/05/2025  
+
+---
+
+### Test Case 2 (TC02): Afegir activitat sostenible  
+- **Objectiu:** Afegir una activitat sostenible correctament.  
+- **Dades de prova:**  
+  - Nom de l'activitat: "Menjar Tofu"  
+  - Categoria: "Alimentació"  
+- **Resultat:** Tots els passos es van completar amb èxit (Pass).  
+- **Tester:** Aleix  
+- **Data:** 20/05/2025  
+
+---
+
+### Test Case 3 (TC03): Afegir dades amb arxiu CSV  
+- **Objectiu:** Afegir dades externes mitjançant un arxiu CSV.  
+- **Prerequisits:** Tenir un arxiu CSV amb dades compatibles.  
+- **Resultat:** Tots els passos es van completar amb èxit (Pass).  
+- **Tester:** Aleix  
+- **Data:** 20/05/2025  
+
+---
+
+### Test Case 4 (TC04): Eliminar activitat sostenible  
+- **Objectiu:** Eliminar una activitat sostenible correctament.  
+- **Dades de prova:**  
+  - ID: 45  
+  - Tipus: "eliminar"  
+- **Resultat:** Tots els passos es van completar amb èxit (Pass).  
+- **Tester:** Raul  
+- **Data:** 20/05/2025  
+
+---
+
+### Conclusió  
+Tots els casos de prova es van executar amb èxit (Pass), verificant les funcionalitats clau del sistema, incloent:  
+- Consulta de gràfiques.  
+- Addició i eliminació d'activitats.  
+- Importació de dades des d'un arxiu CSV.  
+
+Els testers **Raul** i **Aleix** van completar les proves el **20/05/2025** sense trobar errors.
+
+### Enllaç: https://docs.google.com/spreadsheets/d/1Fusw4FJXLbf5FSt3fTccSEtuSUcpt1WF/edit?usp=sharing&ouid=108173395315781493335&rtpof=true&sd=true
