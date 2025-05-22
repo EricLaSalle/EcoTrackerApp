@@ -25,7 +25,7 @@ public class ActivitatsSostenibles {
 
     // Constructor
     public ActivitatsSostenibles(int id, String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat, double co2TotalEstalviat) {
-        this.id = 0;
+        this.id = id;
         this.nom = nom;
         this.data = data;
         this.categoria = categoria;

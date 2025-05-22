@@ -3,8 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import com.sun.javafx.scene.control.IntegerField?>
-<?import javafx.scene.text.Text?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.EliminarModificarActivitatController">
     <children>
         <Label layoutX="156.0" layoutY="75.0" text="Introdueix l'identificador de l'activitat que vols eliminar o modificar" />
@@ -25,6 +23,6 @@
         </TableView>
         <Button fx:id="cancelarButton" layoutX="344.0" layoutY="212.0" mnemonicParsing="false" text="Cancelar" onAction="#onClickCancelar" />
         <Button layoutX="200.0" layoutY="212.0" mnemonicParsing="false" text="Continuar" onAction="#onClickContinuar"/>
-      <ChoiceBox layoutX="226.0" layoutY="156.0" prefWidth="150.0" />
+      <ComboBox fx:id="eliminarOmodificar" layoutX="226.0" layoutY="156.0" prefWidth="150.0" promptText="Selecciona una opció"/>
     </children>
 </AnchorPane>
