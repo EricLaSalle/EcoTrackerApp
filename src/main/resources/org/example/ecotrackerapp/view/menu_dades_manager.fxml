@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.MenuDadesManagerController">
-   <children>
-      <Button layoutX="274.0" layoutY="77.0" mnemonicParsing="false" onAction="#onClickAfegirActivitat" text="Afegir Activitat" />
-      <Button layoutX="259.0" layoutY="235.0" mnemonicParsing="false" onAction="#onClickEliminarModificarActivitat" text="Eliminar o Modificar Activitat" />
-      <Button layoutX="249.0" layoutY="149.0" mnemonicParsing="false" onAction="#onClickAfegirDesdeArxiu" text="Afegir dades des d'un arxiu" />
-   </children>
-</AnchorPane>
+<BorderPane stylesheets="@StyleMenuDadesManager.css"
+            prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.ecotrackerapp.controllers.MenuDadesManagerController">
+
+   <!-- HEADER -->
+   <top>
+      <Label text="Gestor d'Activitats Sostenibles"
+             styleClass="header"
+             maxWidth="Infinity"
+             BorderPane.alignment="CENTER"/>
+   </top>
+
+   <!-- FOOTER -->
+   <bottom>
+      <Label text="© 2025 EcotrackerApp"
+             styleClass="footer"
+             maxWidth="Infinity"
+             BorderPane.alignment="CENTER"/>
+   </bottom>
+
+   <!-- LATERALES DECORATIVOS -->
+   <left>
+      <VBox styleClass="sidebar-left"
+            maxHeight="Infinity"
+            VBox.vgrow="ALWAYS"/>
+   </left>
+
+   <right>
+      <VBox styleClass="sidebar-right"
+            maxHeight="Infinity"
+            VBox.vgrow="ALWAYS"/>
+   </right>
+
+   <!-- CONTENIDO PRINCIPAL (Botones) -->
+   <center>
+      <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+         <Button text="Afegir Activitat" onAction="#onClickAfegirActivitat" mnemonicParsing="false"/>
+         <Button text="Afegir dades des d'un arxiu" onAction="#onClickAfegirDesdeArxiu" mnemonicParsing="false"/>
+         <Button text="Eliminar o Modificar Activitat" onAction="#onClickEliminarModificarActivitat" mnemonicParsing="false"/>
+      </VBox>
+   </center>
+
+</BorderPane>
