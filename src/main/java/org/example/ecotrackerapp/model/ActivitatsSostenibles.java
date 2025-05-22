@@ -23,6 +23,17 @@ public class ActivitatsSostenibles {
         this.co2TotalEstalviat = calculCo2Estalviat(categoria);
     }
 
+    // Constructor per a la modificació
+    public ActivitatsSostenibles(Integer id, String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat) {
+        this.id = id;
+        this.nom = nom;
+        this.data = data;
+        this.categoria = categoria;
+        this.descripcio = descripcio;
+        this.quantitat = quantitat;
+        this.co2TotalEstalviat = calculCo2Estalviat(categoria);
+    }
+
     // Constructor
     public ActivitatsSostenibles(int id, String nom, LocalDate data, Categoria categoria, String descripcio, double quantitat, double co2TotalEstalviat) {
         this.id = id;

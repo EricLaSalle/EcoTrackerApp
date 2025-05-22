@@ -3,9 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.MenuDadesManager">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ecotrackerapp.controllers.MenuDadesManagerController">
    <children>
-      <Button layoutX="274.0" layoutY="77.0" mnemonicParsing="false" text="Afegir Activitat" onAction="#onClickAfegirActivitat"/>
-      <Button layoutX="269.0" layoutY="147.0" mnemonicParsing="false" text="Eliminar o Modificar Activitat" onAction="#onClickEliminarModificarActivitat"/>
+      <Button layoutX="274.0" layoutY="77.0" mnemonicParsing="false" onAction="#onClickAfegirActivitat" text="Afegir Activitat" />
+      <Button layoutX="259.0" layoutY="235.0" mnemonicParsing="false" onAction="#onClickEliminarModificarActivitat" text="Eliminar o Modificar Activitat" />
+      <Button layoutX="249.0" layoutY="149.0" mnemonicParsing="false" onAction="#onClickAfegirDesdeArxiu" text="Afegir dades des d'un arxiu" />
    </children>
 </AnchorPane>

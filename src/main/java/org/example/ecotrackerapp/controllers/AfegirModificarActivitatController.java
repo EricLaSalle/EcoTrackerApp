@@ -8,7 +8,7 @@ import org.example.ecotrackerapp.model.Categoria;
 import org.example.ecotrackerapp.model.GestorBbDd;
 import java.time.LocalDate;
 
-public class AfegirActivitatController {
+public class AfegirModificarActivitatController {
     // FXML elements
     @FXML private TextField nomField;
     @FXML private DatePicker dataPicker;
@@ -19,11 +19,48 @@ public class AfegirActivitatController {
     @FXML private Label quantitatLabel;
     @FXML private Button guardarButton;
     @FXML private Button cancelarButton;
+    @FXML private Label tituloLabel;
+
+    // Variables d'estat
+    private boolean modoModificacion = false;
+    private ActivitatsSostenibles actividadAModificar;
+    private int idActividadOriginal;
+
+    /**
+     * Método para configurar el controlador en modo modificación
+     * @param actividad
+     */
+    public void setActividadAModificar(ActivitatsSostenibles actividad) {
+        //Configura el títol
+        tituloLabel.setText("Modificar Activitat Sostenible");
+
+        //Variables
+        this.modoModificacion = true;
+        this.actividadAModificar = actividad;
+        this.idActividadOriginal = actividad.getId();
+
+        // Omple els camps amb els valors actuals de l'activitat a modificar
+        nomField.setText(actividad.getNom());
+        dataPicker.setValue(actividad.getData());
+
+        // Buscar y seleccionar la categoría correspondiente
+        for (int i = 0; i < GestorBbDd.getLlistaCategories().size(); i++) {
+            if (GestorBbDd.getLlistaCategories().get(i).getNomCategoria().equals(actividad.getCategoria().getNomCategoria())) {
+                categoriaCombo.getSelectionModel().select(i);
+                break;
+            }
+        }
+
+        descripcioArea.setText(actividad.getDescripcio());
+        quantitatField.setText(String.valueOf(actividad.getQuantitat()));
+    }
 
     /**
      * Inicialitza el controlador.
      */
     public void initialize() {
+        // Configurar título por defecto (para modo añadir)
+        tituloLabel.setText("Afegir Nova Activitat Sostenible");
         // Configurar limitacions de caràcters
         nomField.textProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal.length() > 25) {
@@ -80,23 +117,40 @@ public class AfegirActivitatController {
     @FXML
     private void guardarActivitat() {
         try {
+            //Variables a declarar
+            ActivitatsSostenibles activitat;
+            // Validar campss obligatoris
+            if (nomField.getText().isEmpty() || dataPicker.getValue() == null ||
+                    categoriaCombo.getSelectionModel().isEmpty() || quantitatField.getText().isEmpty()) {
+                mostrarAlerta("Error", "Si us plau, omple tots els camps obligatoris", Alert.AlertType.ERROR);
+                return;
+            }
+
             String nom = nomField.getText();
             LocalDate data = dataPicker.getValue();
             Categoria categoria = GestorBbDd.getLlistaCategories().get(categoriaCombo.getSelectionModel().getSelectedIndex());
             String descripcio = descripcioArea.getText();
             double quantitat = Double.parseDouble(quantitatField.getText());
 
-            ActivitatsSostenibles novaActivitat = new ActivitatsSostenibles(nom, data, categoria, descripcio, quantitat);
-            GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());
+            // Si estem en mode modificació, actualitzem l'activitat
+            if (modoModificacion) {
+                // Actualitzar l'activitat existent
+                activitat = new ActivitatsSostenibles(idActividadOriginal, nom, data, categoria, descripcio, quantitat);
 
-            GestorBbDd.afegirActivitataBBDD(novaActivitat);
+                // Actualitzar l'activitat a la base de dades i a la llista
+                GestorBbDd.modificarActivitat(activitat);
 
-            //Crea una finestra que mostra que tot ha anat bé
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Activitat afegida");
-            alert.setHeaderText("Activitat afegida correctament");
-            alert.setContentText("L'activitat ha estat afegida correctament a la base de dades.");
-            alert.showAndWait();
+                //Mostrem un missatge d'èxit
+                mostrarAlerta("Èxit", "Activitat modificada correctament", Alert.AlertType.INFORMATION);
+            } else {
+                //Afegim nova activitat a la base de dades
+                activitat = new ActivitatsSostenibles(nom, data, categoria, descripcio, quantitat);
+                GestorBbDd.afegirActivitataBBDD(activitat);
+                GestorBbDd.crearLlistaActivitatsSostenibles(GestorBbDd.getConnection());
+
+                //Mostrem missatge d'èxit
+                mostrarAlerta("Èxit", "Activitat afegida correctament", Alert.AlertType.INFORMATION);
+            }
 
             // Tancar la finestra
             ((Stage) guardarButton.getScene().getWindow()).close();
@@ -135,6 +189,20 @@ public class AfegirActivitatController {
                 quantitatLabel.setText("Quantitat:");
                 quantitatField.setPromptText("Introdueix la quantitat");
         }
+    }
+
+    /**
+     * Mostra una alerta amb el missatge i el tipus especificat.
+     * @param titulo
+     * @param mensaje
+     * @param tipo
+     */
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
     /**

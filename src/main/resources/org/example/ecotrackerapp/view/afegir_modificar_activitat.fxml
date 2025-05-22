@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.example.ecotrackerapp.controllers.AfegirActivitatController"
+      fx:controller="org.example.ecotrackerapp.controllers.AfegirModificarActivitatController"
       spacing="10" style="-fx-padding: 20;">
 
-    <Label text="Afegir Nova Activitat Sostenible" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label fx:id="tituloLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
 
     <GridPane hgap="10" vgap="10">
         <columnConstraints>

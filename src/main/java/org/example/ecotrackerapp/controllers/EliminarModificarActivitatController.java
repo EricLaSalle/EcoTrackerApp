@@ -1,10 +1,10 @@
 package org.example.ecotrackerapp.controllers;
 
-import com.dlsc.formsfx.model.structure.IntegerField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
@@ -137,13 +137,21 @@ public class EliminarModificarActivitatController {
             ((Stage) continuarButton.getScene().getWindow()).close();
 
         } else if ("Modificar".equals(accion)) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/afegir_activitat.fxml"));
+
+            //Obrir la finestra de modificar activitat
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/ecotrackerapp/view/afegir_modificar_activitat.fxml"));
+            Parent root = loader.load();
+            AfegirModificarActivitatController controller = loader.getController();
+            controller.setActividadAModificar(activitatSeleccionada);
             Stage stage = new Stage();
-            Scene scene = new Scene(loader.load(), 800, 600);
-            stage.setTitle("Modificatr Activitat Sostenible");
+            Scene scene = new Scene(root, 800, 600);
+            stage.setTitle("Modificar Activitat Sostenible");
             stage.setScene(scene);
             stage.initModality(Modality.WINDOW_MODAL);
             stage.show();
+
+            //Tancar la finestra actual
+            ((Stage) continuarButton.getScene().getWindow()).close();
         }
     }
 
